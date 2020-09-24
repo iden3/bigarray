@@ -4,11 +4,11 @@
   "description": "Big Array object that allows to handle arrays with a huge number of elements.",
   "type": "module",
   "exports": {
-    "import": "./src/r1csfile.js",
+    "import": "./src/bigarray.js",
     "require": "./build/main.cjs"
   },
   "main": "./build/main.cjs",
-  "module": "./src/r1csfile.js",
+  "module": "./src/bigarray.js",
   "scripts": {
     "test": "mocha",
     "build": "rollup -c rollup.cjs.config.js"
