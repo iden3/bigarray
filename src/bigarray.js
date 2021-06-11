@@ -31,9 +31,46 @@ class _BigArray {
             this.setElement (this.length, arguments[i]);
         }
     }
-
+    pop () {
+        if (!this.length) {
+            return;
+        }
+        --this.length;
+        const idx1 = Math.floor(this.length / SUBARRAY_SIZE);
+        const idx2 = this.length % SUBARRAY_SIZE;
+        return this.arr[idx1][idx2];
+    }
+    map (mapper) {
+        const arr = new BigArray(this.length);
+        for (let i=0; i<this.arr.length; i++) {
+            if (this.arr[i]) {
+                for (let j=0; j<this.arr[i].length; j++) {
+                    if (typeof this.arr[i][j] !== "undefined") {
+                        arr.push(mapper(this.arr[i][j]));
+                    }
+                }
+            }
+        }
+        return arr;
+    }
+    concat (arr) {
+        const newArr = new BigArray(this.length);
+        for (let i=0; i<this.arr.length; i++) {
+            newArr.push(this.arr[i]);
+        }
+        for (let i=0; i<arr.length; i++) {
+            newArr.push(arr[i]);
+        }
+        return newArr;
+    }
     slice (f, t) {
-        const arr = new Array(t-f);
+        if (f === undefined) {
+            f = 0;
+        }
+        if (t === undefined) {
+            t = this.length;
+        }
+        const arr = new BigArray(t-f);
         for (let i=f; i< t; i++) arr[i-f] = this.getElement(i);
         return arr;
     }
