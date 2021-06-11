@@ -70,7 +70,8 @@ class _BigArray {
         if (t === undefined) {
             t = this.length;
         }
-        const arr = new BigArray(t-f);
+        const size = t-f;
+        const arr = size > SUBARRAY_SIZE ? new BigArray(size) : new Array(size);
         for (let i=f; i< t; i++) arr[i-f] = this.getElement(i);
         return arr;
     }
