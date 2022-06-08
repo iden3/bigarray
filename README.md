@@ -1,11 +1,11 @@
-# bigarray
+# @iden3/bigarray
 
 Array object for nodejs that Support millions of elements
 
 ## usage
 
 ```
-npm install bigarray
+npm install @iden3/bigarray
 ```
 
 ```
