@@ -29,6 +29,6 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^8.48.0",
-    "rollup": "^2.20.0"
+    "rollup": "^4.0.0"
   }
 }
